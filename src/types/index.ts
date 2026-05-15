@@ -57,6 +57,7 @@ export interface Service {
   description: string;
   icon: string;
   features: string[];
+  priceFrom?: number;
 }
 
 export interface PortfolioItem {

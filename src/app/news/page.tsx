@@ -1,44 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const newsItems = [
-  {
-    id: "1",
-    title: "Запуск RISE PROJECT",
-    content: "Официальный запуск межпроектного пространства RISE PROJECT, объединяющего все наши игровые проекты под единым брендом.",
-    date: "2024-12-01",
-    type: "milestone" as const,
-  },
-  {
-    id: "2",
-    title: "Открытие RISE STUDIO",
-    content: "Запуск студии разработки. Теперь мы предлагаем услуги по созданию плагинов, ботов, сайтов и 3D моделей для игровых проектов.",
-    date: "2024-11-15",
-    type: "milestone" as const,
-  },
-  {
-    id: "3",
-    title: "Обновление RISE SQUAD",
-    content: "Масштабное обновление серверов Squad: новые карты, оптимизация производительности и улучшенная система модерации.",
-    date: "2024-10-20",
-    type: "update" as const,
-  },
-  {
-    id: "4",
-    title: "Новый сезон RISE RUST",
-    content: "Старт нового сезона на серверах Rust с уникальными ивентами, авторскими плагинами и обновлённой системой экономики.",
-    date: "2024-09-01",
-    type: "update" as const,
-  },
-  {
-    id: "5",
-    title: "Набор в команду",
-    content: "Открыт набор разработчиков и администраторов в RISE TEAM. Ищем талантливых людей для работы над новыми проектами.",
-    date: "2024-08-15",
-    type: "announcement" as const,
-  },
-];
+import { newsItems } from "@/lib/data";
 
 const typeColors = {
   milestone: "bg-rise-red",
