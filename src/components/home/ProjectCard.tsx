@@ -18,6 +18,10 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleCardClick = () => {
+    window.open(project.siteUrl, "_blank", "noopener,noreferrer");
+  };
+
   if (compact) {
     return (
       <motion.div
@@ -26,11 +30,12 @@ export default function ProjectCard({
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
       >
-        <a
-          href={project.siteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block"
+        <div
+          role="link"
+          tabIndex={0}
+          onClick={handleCardClick}
+          onKeyDown={(e) => e.key === "Enter" && handleCardClick()}
+          className="group block cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -143,7 +148,7 @@ export default function ProjectCard({
               </motion.div>
             </div>
           </div>
-        </a>
+        </div>
       </motion.div>
     );
   }
@@ -158,7 +163,12 @@ export default function ProjectCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <a href={project.siteUrl} target="_blank" rel="noopener noreferrer">
+      <div
+        role="link"
+        tabIndex={0}
+        onClick={handleCardClick}
+        onKeyDown={(e) => e.key === "Enter" && handleCardClick()}
+      >
         <div className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-rise-gray">
           <div
             className="absolute inset-0 transition-all duration-700 ease-out"
@@ -257,7 +267,7 @@ export default function ProjectCard({
             transition={{ duration: 0.4 }}
           />
         </div>
-      </a>
+      </div>
 
       {project.isArchived && (
         <div className="absolute top-4 right-4 z-20 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white/50">
