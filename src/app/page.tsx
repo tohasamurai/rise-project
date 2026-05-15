@@ -63,7 +63,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,45 +73,42 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
               Наши проекты
             </h2>
-            <p className="mt-4 text-white/40 max-w-lg mx-auto text-sm">
-              Бренд RISE является залогом качества в любой игре. Каждый проект —
-              это уникальный мир с высочайшим сервисом.
+            <div className="mt-2 w-10 h-0.5 bg-rise-red mx-auto" />
+            <p className="mt-6 text-white/40 max-w-lg mx-auto text-sm">
+              Бренд RISE — залог качества в любой игре. Каждый проект — уникальный
+              мир с высочайшим сервисом.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {activeProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                compact
+              />
+            ))}
+
+            {archivedProjects.map((project, index) => (
+              <div key={project.id} className="relative">
+                <ProjectCard
+                  project={project}
+                  index={activeProjects.length + index}
+                  compact
+                />
+                <div className="absolute top-3 right-3 z-20 px-2.5 py-0.5 bg-white/10 backdrop-blur-sm rounded-full text-[10px] text-white/40 font-medium">
+                  Архив
+                </div>
+              </div>
             ))}
           </div>
-
-          {archivedProjects.length > 0 && (
-            <div className="mt-16">
-              <motion.h3
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-lg font-semibold text-white/30 mb-6 text-center"
-              >
-                Архивные проекты
-              </motion.h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-60">
-                {archivedProjects.map((project, index) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
       {/* Who We Are Section */}
       <section className="py-24 sm:py-32 bg-rise-dark">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <motion.div
               initial={{ opacity: 0, x: -20 }}

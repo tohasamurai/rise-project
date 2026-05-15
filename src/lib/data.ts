@@ -27,7 +27,7 @@ export const projects: Project[] = [
     imageUrl: "/images/rise-rust.jpg",
     siteUrl: "https://riserust.com",
     discordUrl: "https://dsc.gg/riserust",
-    colorScheme: "#cd4125",
+    colorScheme: "#e67e22",
     isArchived: false,
     order: 2,
     createdAt: "2024-01-01",
